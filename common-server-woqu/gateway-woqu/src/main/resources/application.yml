@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: common-server-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: business-a-woqu
+        uri: lb://business-a-woqu
+        order: 10000
+        predicates:
+        - Path=/api/a/**
+        filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 1  # 令牌桶的容积
+            redis-rate-limiter.burstCapacity: 5  # 流速 每秒
+            key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
+        - StripPrefix=2
+      - id: business-b-woqu
+        uri: lb://business-b-woqu
+        order: 10001
+        predicates:
+        - Path=/api/b/**
+        filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 1  # 令牌桶的容积
+            redis-rate-limiter.burstCapacity: 5  # 流速 每秒
+            key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
+        - StripPrefix=2
+
+  redis:
+    host: woqu.redis
+    port: 6379
+    database: 5
+
+  extend:
+    standalone-bucket:
+      capacity: 100
+      refillTokens: 100
+      refillPeriod: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: dev
+
+

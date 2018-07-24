@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    consul:
+      host: woqu.consul
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}
+        instance-group: ${spring.application.name}
+        register: true
+
+
+server:
+  port: 9002

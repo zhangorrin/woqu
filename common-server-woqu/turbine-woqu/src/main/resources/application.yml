@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: common-server-turbine
+
+applications: common-server-gateway,business-b-woqu,business-a-woqu
+turbine:
+  aggregator:
+    cluster-config: ${applications}
+  app-config: ${applications}
+  #cluster-name-expression: new String("default")
+  combine-host-port: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: dev

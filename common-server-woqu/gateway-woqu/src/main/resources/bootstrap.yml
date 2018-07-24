@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    consul:
+      host: woqu.consul
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}
+        instance-group: ${spring.application.name}
+        register: true
+        service-name: ${spring.application.name}
+server:
+  port: 7001
+
+ribbon:
+  ServerListRefreshInterval: 5000
+
+feign:
+  hystrix:
+    enabled: true

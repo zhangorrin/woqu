@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: testConsulApp
+  cloud:
+    consul:
+      host: woqu.consul
+      port: 8500

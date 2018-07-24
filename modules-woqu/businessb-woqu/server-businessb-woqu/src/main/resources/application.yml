@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: business-b-woqu
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: dev

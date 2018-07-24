@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: hystrix-dashboard-woqu
+server:
+  port: 7002
