@@ -1,5 +1,7 @@
 package com.woqu.framework.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 /**
@@ -8,10 +10,13 @@ import java.io.Serializable;
 public class ApiResponse<T extends Serializable> implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty
     private int code;
 
+    @JsonProperty
     private T data;
 
+    @JsonProperty
     private String message;
 
     private int getCode() {

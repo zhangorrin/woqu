@@ -1,5 +1,8 @@
 package com.woqu.common.gateway.config;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.woqu.framework.model.ApiResponse;
 import org.isomorphism.util.TokenBucket;
 import org.isomorphism.util.TokenBuckets;
 import org.slf4j.Logger;
@@ -14,8 +17,10 @@ import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Objects;
@@ -84,7 +89,17 @@ public class StandaloneGlobalFilter implements GlobalFilter, Ordered {
 
         if (!consumed || !cpuOk) {
             exchange.getResponse().setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
-            return exchange.getResponse().setComplete();
+            ObjectMapper mapper = new ObjectMapper();
+            byte[] bytes = null;
+            try {
+                bytes = mapper.writeValueAsBytes(ApiResponse.error("请求过于频繁，请稍后重试"));
+            } catch (JsonProcessingException e) {
+                bytes = ("{\"code\":500,\"data\":null,\"message\":\"请求过于频繁，请稍后重试\"}").getBytes();
+                e.printStackTrace();
+            }
+
+            DataBuffer buffer = exchange.getResponse().bufferFactory().wrap(bytes);
+            return exchange.getResponse().writeWith(Flux.just(buffer));
         }
 
         return chain.filter(exchange);
