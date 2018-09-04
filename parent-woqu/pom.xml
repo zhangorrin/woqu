@@ -20,6 +20,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <spring-boot-admin.version>2.0.2</spring-boot-admin.version>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
 
         <!-- docker仓库地址 -->
         <docker.registry>localhost:5000</docker.registry>
@@ -30,6 +32,7 @@
         <repository.url>http://192.168.2.110:8081/nexus/content</repository.url>
 
         <token-bucket.version>1.7</token-bucket.version>
+        <jolokia.version>1.6.0</jolokia.version>
 
     </properties>
 
@@ -38,7 +41,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RELEASE</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -48,6 +51,12 @@
                 <groupId>org.isomorphism</groupId>
                 <artifactId>token-bucket</artifactId>
                 <version>${token-bucket.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jolokia</groupId>
+                <artifactId>jolokia-core</artifactId>
+                <version>${jolokia.version}</version>
             </dependency>
 
         </dependencies>

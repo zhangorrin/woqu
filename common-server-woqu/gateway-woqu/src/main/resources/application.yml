@@ -2,6 +2,11 @@ spring:
   application:
     name: common-server-gateway
 
+  boot:
+    admin:
+      client:
+        url: http://woqu.admin:7000
+
   cloud:
     gateway:
       discovery:

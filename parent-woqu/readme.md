@@ -5,6 +5,7 @@
 
 
 ##端口
+7000 admin-woqu
 7001 gateway-woqu
 7002 hystrix-dashboard-woqu
 7003 turbine-woqu

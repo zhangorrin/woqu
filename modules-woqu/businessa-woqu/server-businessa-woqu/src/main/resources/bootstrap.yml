@@ -1,6 +1,11 @@
 spring:
   application:
     name: business-a-woqu
+
+  boot:
+    admin:
+      client:
+        url: http://woqu.admin:7000
   cloud:
     consul:
       host: woqu.consul

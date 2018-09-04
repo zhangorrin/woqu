@@ -1,5 +1,10 @@
 spring:
   application:
     name: hystrix-dashboard-woqu
+
+  boot:
+    admin:
+      client:
+        url: http://woqu.admin:7000
 server:
   port: 7002

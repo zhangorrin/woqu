@@ -20,7 +20,6 @@
         <module>gateway-woqu</module>
         <module>hystrix-dashboard-woqu</module>
         <module>turbine-woqu</module>
-        <module>config-woqu</module>
     </modules>
     
 </project>

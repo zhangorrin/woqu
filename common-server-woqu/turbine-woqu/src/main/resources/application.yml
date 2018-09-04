@@ -2,6 +2,11 @@ spring:
   application:
     name: common-server-turbine
 
+  boot:
+    admin:
+      client:
+        url: http://woqu.admin:7000
+
 applications: common-server-gateway,business-b-woqu,business-a-woqu
 turbine:
   aggregator:

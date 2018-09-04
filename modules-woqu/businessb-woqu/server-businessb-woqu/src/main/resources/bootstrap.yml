@@ -8,6 +8,10 @@ spring:
         instance-group: ${spring.application.name}
         register: true
 
+  boot:
+    admin:
+      client:
+        url: http://woqu.admin:7000
 
 server:
   port: 9002
