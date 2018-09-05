@@ -12,3 +12,22 @@ management:
       exposure:
         include: "*"
         exclude: dev
+
+
+logging:
+  level:
+    root: info
+    com.woqu: debug
+
+commandhystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          #THREAD|SEMAPHORE
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 60000

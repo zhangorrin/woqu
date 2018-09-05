@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>model-woqu</module>
+        <module>core-woqu</module>
     </modules>
 
 

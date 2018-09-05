@@ -31,15 +31,3 @@ spring:
 
 server:
   port: 9001
-
-feign:
-  hystrix:
-    enabled: true
-
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-        exclude: dev

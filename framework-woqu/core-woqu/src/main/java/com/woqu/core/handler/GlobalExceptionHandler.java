@@ -1,13 +1,13 @@
-package com.woqu.framework.handler;
+package com.woqu.core.handler;
 
-import com.woqu.framework.model.ApiResponse;
+import com.woqu.model.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * @author orrin on 2018/8/27
+ * @author orrin on 2018/9/4
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {

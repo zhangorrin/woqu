@@ -1,4 +1,5 @@
-package com.woqu.framework.model;
+package com.woqu.model;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

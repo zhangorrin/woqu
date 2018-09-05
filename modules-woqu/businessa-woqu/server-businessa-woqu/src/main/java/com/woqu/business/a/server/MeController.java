@@ -19,7 +19,7 @@ public class MeController implements Me {
 
     @Override
     public String callMe() {
-        return "hello , i am a " + System.currentTimeMillis();
+        return "hello , i am a " + System.currentTimeMillis() + " and i call b : " + b.callMe();
     }
 
     @GetMapping("/call/b")

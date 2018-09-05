@@ -1,0 +1,66 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: admin-woqu
+  cloud:
+    consul:
+      host: woqu.consul
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}
+        instance-group: ${spring.application.name}
+        register: true
+        service-name: ${spring.application.name}
+        tags: management.context-path=/foo, health.path=/ping, user.name=user, user.password=password
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: false
+          to: 接收人
+          from: 发送人
+#          ignore-changes: UNKNOWN:UP
+          ignore-changes:
+          -
+            "*:UP" #从任何状态到up状态都不要发邮件通知
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+      turbine:
+        clusters: default
+        #,unieap-eureka-server-single
+        location: turbine
+      discovery:
+        ignored-services: consul,${spring.application.name}
+  mail:
+    host: smtp.163.com
+    username: o_rrin
+    password: 1qaz@WSX
+    properties:
+      mail.smtp.auth : true
+      mail.smtp.timeout : 2000
+      mail.smtp.starttls.enable : true
+      mail.smtp.starttls.required : true
+
+  #zipkin:
+    #base-url: http://127.0.0.1:11008    # zipkin监控地址
+
+  security:
+    user:
+      name: "user"
+      password: "123456"
+
+management:
+  server:
+    servlet:
+      context-path: /foo
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      path-mapping:
+        health: /ping
+  endpoint:
+    health:
+      show-details: ALWAYS

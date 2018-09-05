@@ -18,6 +18,11 @@
             <artifactId>model-woqu</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.orrin</groupId>
+            <artifactId>core-woqu</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

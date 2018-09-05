@@ -2,7 +2,7 @@ package com.woqu.common.gateway.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.woqu.framework.model.ApiResponse;
+import com.woqu.model.ApiResponse;
 import org.isomorphism.util.TokenBucket;
 import org.isomorphism.util.TokenBuckets;
 import org.slf4j.Logger;
