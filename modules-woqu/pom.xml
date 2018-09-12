@@ -10,6 +10,7 @@
     <modules>
         <module>businessa-woqu</module>
         <module>businessb-woqu</module>
+        <module>business-demo</module>
     </modules>
     <packaging>pom</packaging>
 

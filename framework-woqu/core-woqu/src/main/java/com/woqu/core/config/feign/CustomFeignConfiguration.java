@@ -1,4 +1,4 @@
-package com.woqu.core.config;
+package com.woqu.core.config.feign;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

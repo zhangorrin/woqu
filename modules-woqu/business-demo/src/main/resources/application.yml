@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: business-demo
+server:
+  port: 20000

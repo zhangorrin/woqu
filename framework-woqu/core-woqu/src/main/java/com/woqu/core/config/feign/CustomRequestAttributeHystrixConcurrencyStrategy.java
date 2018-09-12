@@ -1,4 +1,4 @@
-package com.woqu.core.config;
+package com.woqu.core.config.feign;
 
 import com.netflix.hystrix.HystrixThreadPoolKey;
 import com.netflix.hystrix.HystrixThreadPoolProperties;
