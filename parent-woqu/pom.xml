@@ -24,7 +24,7 @@
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
 
         <!-- docker仓库地址 -->
-        <docker.repostory>192.168.2.169:5000</docker.repostory>
+        <docker.repostory>dev.server:5000</docker.repostory>
         <!-- 项目名称 namespace -->
         <docker.registry.name>woqu</docker.registry.name>
 
