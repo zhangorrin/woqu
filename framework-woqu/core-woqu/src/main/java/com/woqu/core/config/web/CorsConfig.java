@@ -3,9 +3,8 @@ package com.woqu.core.config.web;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.reactive.CorsWebFilter;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
-import org.springframework.web.util.pattern.PathPatternParser;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 /**
  * @author orrin on 2018/9/5
@@ -23,11 +22,10 @@ public class CorsConfig {
     }
 
     @Bean
-    public CorsWebFilter corsWebFilter() {
-        PathPatternParser pathPatternParser = new PathPatternParser();
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(pathPatternParser);
+    public CorsFilter corsWebFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", buildConfig());
-        return new CorsWebFilter(source);
+        return new CorsFilter(source);
     }
 
 }
