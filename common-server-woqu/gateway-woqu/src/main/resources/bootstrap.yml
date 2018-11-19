@@ -17,3 +17,7 @@ ribbon:
 feign:
   hystrix:
     enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
