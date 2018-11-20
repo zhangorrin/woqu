@@ -4,7 +4,7 @@ spring:
       host: woqu.consul
       port: 8500
       discovery:
-        instance-id: ${spring.application.name}
+        #instance-id: ${spring.application.name}:${server.port}
         instance-group: ${spring.application.name}
         register: true
         service-name: ${spring.application.name}

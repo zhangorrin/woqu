@@ -20,7 +20,7 @@ public class AdditionController implements Addition {
 
     @GetMapping("/call")
     public String callMe() {
-        return "hello , i am a " + System.currentTimeMillis();
+        return "hello , i am a " + System.currentTimeMillis() + b.multiply(1, 10);
     }
 
     @Value("${extend.info.desc:error}")

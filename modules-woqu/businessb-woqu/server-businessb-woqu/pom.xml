@@ -46,6 +46,12 @@
 
         <dependency>
             <groupId>com.orrin</groupId>
+            <artifactId>woqu-cloud-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.orrin</groupId>
             <artifactId>client-businessa-woqu</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
