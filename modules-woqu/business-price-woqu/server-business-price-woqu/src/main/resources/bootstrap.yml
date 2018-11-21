@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: business-price-woqu
+
+  boot:
+    admin:
+      client:
+        url: http://woqu.admin:7000
+  cloud:
+    consul:
+      host: woqu.consul
+      port: 8500
+      discovery:
+        #instance-id: ${spring.application.name}:${server.port}
+        instance-group: ${spring.application.name}
+        register: true
+
+      config:
+        enabled: true   #默认是true
+        format: YAML  # 表示consul上面文件的格式 有四种 YAML PROPERTIES KEY-VALUE FILES
+        fail-fast: true
+        watch:
+          enabled: true
+        default-context: ${spring.application.name} #指定consul配置的配置文件父路径
+        # 指定consul配置的文件夹前缀为config
+        prefix: woqu_configuration/master/common-server-config-respo
+        data-key: application.yml
+  zipkin:
+    base-url: http://zipkin.server:9411/ # 指定了 Zipkin 服务器的地址
+  sleuth:
+    sampler:
+      probability: 1.0
+    web:
+      client:
+        enabled: true
+
+
+#consul config 路径：prefix defaultContext data-key
+
+
+server:
+  port: 9004

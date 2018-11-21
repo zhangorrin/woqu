@@ -1,0 +1,29 @@
+feign:
+  hystrix:
+    enabled: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: dev
+
+logging:
+  level:
+    root: info
+    com.woqu: debug
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 60000

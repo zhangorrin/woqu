@@ -37,6 +37,30 @@ spring:
             redis-rate-limiter.burstCapacity: 5  # 流速 每秒
             key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
         - StripPrefix=2
+      - id: business-merchandise-woqu
+        uri: lb://business-merchandise-woqu
+        order: 10002
+        predicates:
+        - Path=/api/merchandise/**
+        filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 1  # 令牌桶的容积
+            redis-rate-limiter.burstCapacity: 5  # 流速 每秒
+            key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
+        - StripPrefix=2
+      - id: business-price-woqu
+        uri: lb://business-merchandise-woqu
+        order: 10002
+        predicates:
+        - Path=/api/price/**
+        filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 1  # 令牌桶的容积
+            redis-rate-limiter.burstCapacity: 5  # 流速 每秒
+            key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
+        - StripPrefix=2
 
   redis:
     host: woqu.redis

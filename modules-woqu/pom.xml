@@ -11,6 +11,8 @@
         <module>businessa-woqu</module>
         <module>businessb-woqu</module>
         <module>business-demo</module>
+        <module>business-merchandise-woqu</module>
+        <module>business-price-woqu</module>
     </modules>
     <packaging>pom</packaging>
 
