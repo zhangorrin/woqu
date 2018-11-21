@@ -25,9 +25,18 @@ spring:
         # 指定consul配置的文件夹前缀为config
         prefix: woqu_configuration/master/common-server-config-respo
         data-key: application.yml
+  zipkin:
+    base-url: http://zipkin.server:9411/ # 指定了 Zipkin 服务器的地址
+  sleuth:
+    sampler:
+      probability: 1.0
+    web:
+      client:
+        enabled: true
 
 
 #consul config 路径：prefix defaultContext data-key
+
 
 server:
   port: 9001
