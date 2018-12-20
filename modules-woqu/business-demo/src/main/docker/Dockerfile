@@ -8,7 +8,7 @@ ENV WORK_PATH /home/project/nmcp
 ENV APP_NAME @project.build.finalName@.@project.packaging@
 ENV APP_VERSION @project.version@
 
-EXPOSE 7001
+EXPOSE 20000
 
 #USER
 #USER user:group

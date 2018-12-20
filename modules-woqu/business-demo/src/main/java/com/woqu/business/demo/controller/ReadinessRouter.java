@@ -16,7 +16,7 @@ public class ReadinessRouter {
     @Bean
     public RouterFunction<ServerResponse> routeCity(ReadinessHandler readinessHandler) {
         return RouterFunctions
-                .route(RequestPredicates.GET("/ready")
+                .route(RequestPredicates.GET("/v2/ready")
                                 .and(RequestPredicates.accept(MediaType.APPLICATION_JSON_UTF8)),
                         readinessHandler::ready);
     }
