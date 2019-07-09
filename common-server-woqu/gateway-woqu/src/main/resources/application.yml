@@ -79,5 +79,11 @@ management:
       exposure:
         include: "*"
         exclude: dev
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        step: 1m
+        descriptions: true
 
 
